@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <title>ข้อความ | SpotMix</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="js/protect.js"></script>
+</head>
+<body>
+  <aside class="sidebar">
+    <ul>
+      <li><a href="index.html">🏠</a></li>
+      <li><a href="friends.html">👥</a></li>
+      <li><a href="chat.html">💬</a></li>
+      <li><a href="settings.html">⚙️</a></li>
+    </ul>
+  </aside>
+
+  <main class="chat-container">
+    <section class="chat-left">
+      <h3>เพื่อน (Mutual)</h3>
+      <ul id="friendList"></ul>
+    </section>
+
+    <section class="chat-right">
+      <div class="chat-header">
+        <div>
+          <strong id="chatTitle">กรุณาเลือกเพื่อน</strong>
+          <div id="friendStatus" style="font-size: 0.75rem;"></div>
+        </div>
+      </div>
+      <div id="chatBox" class="chat-box"></div>
+      <div id="typingIndicator" class="typing"></div>
+      <form id="chatForm" style="padding: 15px; display: flex; gap: 10px; background: #111;">
+        <input type="text" id="messageInput" placeholder="เขียนข้อความ..." style="flex:1; padding:10px; border-radius:20px; border:none; outline:none;">
+        <button type="submit" style="background:none; border:none; color:var(--primary); font-weight:bold; cursor:pointer;">ส่ง</button>
+      </form>
+    </section>
+  </main>
+
+  <script type="module" src="js/chat.js"></script>
+</body>
+</html>

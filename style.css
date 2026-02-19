@@ -1,0 +1,60 @@
+:root {
+  --bg: #0e0e10; --text: #fff; --card: #1a1a1f; --primary: #00b8ff; --gray: #555; --online: #00ff87;
+}
+body.light {
+  --bg: #f0f2f5; --text: #1c1e21; --card: #ffffff; --gray: #ddd;
+}
+body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); margin: 0; transition: 0.3s; }
+.hidden { display: none; }
+
+/* Sidebar */
+.sidebar { width: 90px; background: #111; border-right: 1px solid #222; position: fixed; height: 100vh; display: flex; flex-direction: column; align-items: center; padding-top: 20px; z-index: 100; }
+.sidebar ul { list-style: none; padding: 0; }
+.sidebar ul li { margin: 30px 0; font-size: 1.5rem; cursor: pointer; }
+.sidebar a { color: #888; text-decoration: none; transition: 0.3s; }
+.sidebar a:hover { color: var(--primary); }
+
+/* Auth Page */
+.auth-body { display: flex; justify-content: center; align-items: center; height: 100vh; }
+.auth-box { background: var(--card); padding: 2rem; border-radius: 15px; width: 350px; text-align: center; box-shadow: 0 10px 25px rgba(0,0,0,0.5); }
+.auth-box input { width: 90%; margin: 10px 0; padding: 12px; border-radius: 8px; border: 1px solid #333; background: #25252b; color: #fff; }
+.auth-box button { width: 96%; padding: 12px; border: none; border-radius: 8px; background: var(--primary); color: #fff; font-weight: bold; cursor: pointer; }
+
+/* Chat System */
+.chat-container { margin-left: 90px; display: flex; height: 100vh; }
+.chat-left { width: 300px; border-right: 1px solid #222; background: #151517; padding: 1rem; }
+.chat-right { flex: 1; display: flex; flex-direction: column; }
+.chat-header { padding: 15px; border-bottom: 1px solid #222; display: flex; justify-content: space-between; align-items: center; }
+.chat-box { flex: 1; padding: 20px; overflow-y: auto; display: flex; flex-direction: column; gap: 10px; }
+.msg { max-width: 70%; padding: 10px 15px; border-radius: 18px; font-size: 0.95rem; position: relative; }
+.msg.me { align-self: flex-end; background: var(--primary); color: #fff; border-bottom-right-radius: 2px; }
+.msg.other { align-self: flex-start; background: #333; color: #fff; border-bottom-left-radius: 2px; }
+.msg .time { font-size: 0.7rem; opacity: 0.7; margin-left: 8px; }
+
+/* Status & Typing */
+.status-dot { display: inline-block; width: 12px; height: 12px; border-radius: 50%; margin-right: 8px; }
+.online { background: var(--online); box-shadow: 0 0 8px var(--online); }
+.offline { background: var(--gray); }
+.typing { padding: 5px 20px; font-size: 0.8rem; color: var(--primary); font-style: italic; min-height: 20px; }
+
+/* Friends List */
+#friendList li { list-style: none; padding: 12px; margin: 5px 0; background: #222; border-radius: 10px; cursor: pointer; transition: 0.2s; }
+#friendList li:hover { background: #2a2a2a; }
+
+#suggestionList {
+  list-style: none;
+  padding: 0;
+  margin-top: 5px;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+#suggestionList li span {
+  font-weight: bold;
+  color: var(--primary);
+}
+
+.search-box {
+  position: relative;
+  margin-bottom: 20px;
+}

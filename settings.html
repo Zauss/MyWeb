@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<title>ตั้งค่า | SpotMix</title>
+<link rel="stylesheet" href="style.css">
+<script src="js/protect.js"></script>
+</head>
+<body>
+  <aside class="sidebar">
+    <ul>
+      <li><a href="index.html">🏠</a></li>
+      <li><a href="friends.html">👥</a></li>
+      <li><a href="chat.html">💬</a></li>
+      <li><a href="settings.html">⚙️</a></li>
+    </ul>
+  </aside>
+  <main class="settings" style="margin-left: 120px; padding: 30px;">
+    <h2>การตั้งค่า</h2>
+    <div style="margin-bottom: 20px;">
+      <label>เปลี่ยนธีม: </label>
+      <select id="themeSelect">
+        <option value="dark">โหมดมืด (Dark)</option>
+        <option value="light">โหมดสว่าง (Light)</option>
+      </select>
+      <button id="saveSettings" style="margin-left:10px;">บันทึก</button>
+    </div>
+    <hr>
+    <button id="logoutBtn" style="background: #ff4d4d; color: white; padding: 10px 20px; border: none; border-radius: 5px;">ออกจากระบบ</button>
+  </main>
+  <script>
+    const user = localStorage.getItem("currentUser");
+    const data = JSON.parse(localStorage.getItem(`user_${user}`));
+    
+    // โหลดค่าธีมปัจจุบัน
+    document.getElementById("themeSelect").value = data.settings.theme;
+
+    document.getElementById("saveSettings").onclick = () => {
+      data.settings.theme = document.getElementById("themeSelect").value;
+      localStorage.setItem(`user_${user}`, JSON.stringify(data));
+      alert("บันทึกการตั้งค่าแล้ว (ธีมจะเปลี่ยนหลัง Refresh)");
+      location.reload();
+    };
+
+    document.getElementById("logoutBtn").onclick = () => {
+      localStorage.removeItem("currentUser");
+      window.location.href = "login.html";
+    };
+
+    // ใช้ธีม
+    if(data.settings.theme === "light") document.body.classList.add("light");
+  </script>
+</body>
+</html>

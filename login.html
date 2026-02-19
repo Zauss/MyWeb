@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <title>SpotMix | Login</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="auth-body">
+  <div class="auth-box">
+    <h2>🎬 SpotMix</h2>
+    <form id="loginForm">
+      <input type="text" id="username" placeholder="ชื่อผู้ใช้" required>
+      
+      <div style="position: relative; width: 100%;">
+        <input type="password" id="password" placeholder="รหัสผ่าน" required style="width: 100%; box-sizing: border-box;">
+      </div>
+
+      <div style="display: flex; align-items: center; justify-content: flex-start; gap: 8px; margin: 5px 0 10px 5px;">
+        <input type="checkbox" id="showPassCheck" style="width: auto; margin: 0; cursor: pointer;">
+        <label for="showPassCheck" style="font-size: 0.8rem; cursor: pointer; color: #aaa;">แสดงรหัสผ่าน</label>
+      </div>
+
+      <div style="display: flex; align-items: center; justify-content: center; gap: 8px; margin: 15px 0;">
+        <input type="checkbox" id="remember" style="width: auto; margin: 0; cursor: pointer;">
+        <label for="remember" style="font-size: 0.9rem; cursor: pointer; color: #ccc;">จดจำฉัน</label>
+      </div>
+
+      <button type="submit">เข้าสู่ระบบ</button>
+      <p style="font-size: 0.8rem;">ยังไม่มีบัญชี? <a href="#" id="showRegister">สมัครที่นี่</a></p>
+    </form>
+
+    <form id="registerForm" class="hidden">
+      <h3>สมัครสมาชิก</h3>
+      <input id="regUsername" placeholder="ชื่อผู้ใช้ใหม่" required>
+      <input type="password" id="regPassword" placeholder="รหัสผ่าน" required>
+      <input id="regQuestion" placeholder="คำถามลับ (เช่น ชื่อแมว?)" required>
+      <input id="regAnswer" placeholder="คำตอบ" required>
+      <button type="submit">ยืนยันการสมัคร</button>
+      <p><a href="#" id="backToLogin">ย้อนกลับ</a></p>
+    </form>
+  </div>
+
+  <script>
+    const passInput = document.getElementById('password');
+    const showPassCheck = document.getElementById('showPassCheck');
+
+    showPassCheck.addEventListener('change', function() {
+      if (this.checked) {
+        passInput.type = 'text'; // เปลี่ยนเป็นข้อความธรรมดาเมื่อติ๊กถูก
+      } else {
+        passInput.type = 'password'; // กลับเป็นจุดไข่ปลาเมื่อเอาติ๊กออก
+      }
+    });
+  </script>
+
+  <script type="module" src="js/auth.js"></script>
+</body>
+</html>
